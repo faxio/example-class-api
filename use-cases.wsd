@@ -1,0 +1,27 @@
+@startuml
+
+skinparam backgroundColor #EEEBDC
+skinparam handwritten true
+
+title Sistema de control de vinos - Diagrama de casos de uso
+
+actor Enólogo
+actor Analista
+actor Gerente
+actor HarvestColecter
+
+Enólogo -> (Ingresar datos de la cosecha)
+Enólogo -> (Revisar estadísticas de producción)
+Enólogo -> (Revisar estado de la fermentación)
+Enólogo -> (Revisar estado de la maduración)
+Enólogo -> (Reportar problema con producción)
+
+HarvestColecter -> (Cosechar uvas)
+
+Analista -> (Realizar control de calidad)
+
+Gerente -> (Revisar estadísticas de producción)
+Gerente -> (Revisar reportes de producción)
+Gerente -> (Realizar seguimiento de producción)
+
+@enduml

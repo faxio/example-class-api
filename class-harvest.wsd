@@ -1,0 +1,36 @@
+@startuml
+
+skinparam classFontSize 14
+skinparam backgroundColor #EEEBDC
+skinparam handwritten true
+
+title Clases del componente HarvestProducer
+
+class HarvestProducer {
+  -grapes: list[Grape]
+  +__init__(self)
+  +harvestGrapes(self, vineyard: Vineyard) -> None
+  +captureGrapes(self, grapes: list[Grape]) -> None
+  -_generateGrapes(self, vineyard: Vineyard) -> None
+}
+
+class Grape {
+  -variety: str
+  -ripe_level: int
+  +__init__(self, variety: str, ripe_level: int)
+  +getVariety(self) -> str
+  +getRipeLevel(self) -> int
+}
+
+class Vineyard {
+  -location: str
+  -grapeVarieties: list[str]
+  +__init__(self, location: str, grape_varieties: list[str])
+  +getLocation(self) -> str
+  +getGrapeVarieties(self) -> list[str]
+}
+
+HarvestProducer -> Grape
+HarvestProducer -> Vineyard
+
+@enduml

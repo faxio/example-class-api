@@ -1,0 +1,48 @@
+@startuml
+
+skinparam backgroundColor #EEEBDC
+skinparam handwritten true
+
+title Secuencia de cosecha de uvas en HarvestProducer
+
+actor User
+
+User -> HarvestProducer: harvest_greapes(vineyard)
+
+activate HarvestProducer
+
+HarvestProducer -> Vineyard: get_grape_varieties()
+
+activate Vineyard
+
+Vineyard --> HarvestProducer: grape_varieties
+
+deactivate Vineyard
+
+HarvestProducer -> Vineyard: get_location()
+
+activate Vineyard
+
+Vineyard --> HarvestProducer: location
+
+deactivate Vineyard
+
+HarvestProducer -> HarvestProducer: _generate_grapes(vineyard)
+
+loop for each variety in grape_varieties
+  HarvestProducer -> Grape: __init__(variety, ripe_level=0)
+
+  activate Grape
+
+  Grape --> HarvestProducer: new_grape
+
+  deactivate Grape
+
+  HarvestProducer -> HarvestProducer: grapes.append(new_grape)
+end
+
+HarvestProducer --> User
+
+deactivate HarvestProducer
+
+@enduml
