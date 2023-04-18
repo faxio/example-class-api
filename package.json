@@ -2,7 +2,7 @@
   "name": "rest-api-class-based",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "dist/app.js",
   "scripts": {
     "dev": "concurrently --kill-others \"tsc -w\" \"nodemon dist/app.js\"",
     "build": "tsc",
@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^8.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2"
